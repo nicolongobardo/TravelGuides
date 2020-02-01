@@ -1,0 +1,124 @@
+<mat-toolbar>
+    <div fxLayout="row" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start" class="w-100-p">
+        <div fxFlex="10">
+            <img src="assets/img/logo.png" alt="beach" style="width: 30%;">
+        </div>
+
+        <div fxFlex="80" fxLayoutAlign="center">
+            <h1 class="text-white py-10">Travel Guides</h1>
+        </div>
+    </div>
+</mat-toolbar>
+
+<div class="city-selected">
+    <div fxLayout="row" fxLayoutAlign="start" class="pt-20 w-100-p">
+        <div fxFlex="40">
+            <ng-container *ngFor="let i of [].constructor(details.rating)">
+                <mat-icon class="color-star">star</mat-icon>
+            </ng-container>
+        </div>
+        <div fxFlex="60" fxLayoutAlign="end">
+            <p class="color-white">{{details.monumentName}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="pt-10">
+    <div fxLayout="row" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start">
+        <button mat-stroked-button color="primary" (click)="goToCity(details.city)">
+        <mat-icon>reply</mat-icon> Torna a {{details.city}}
+      </button>
+
+    </div>
+</div>
+
+<div class="pt-20">
+    <div fxLayout="column" fxLayoutAlign="center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center">
+        <div fxFlex="50">
+            <img mat-card-image src="{{details.img}}" class="img-class">
+        </div>
+
+        <div fxFlex="50">
+            <div fxLayout="column" fxLayoutAlign="center" fxLayout.gt-sm="column" fxLayoutAlign.gt-sm="center" class="p-10">
+                <!-- <h2>{{details.monumentName}}</h2> -->
+                <p>{{details.descrizione}}</p>
+
+                <div class="pt-20 w-100-p text-center">
+                    <a mat-stroked-button href="{{details.link}}">
+                    Continua a leggere
+                  </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="py-10">
+    <p>Audio descrizione del monumento:</p>
+</div>
+
+<div class="text-center">
+    <audio controls>
+      <source src="horse.ogg" type="audio/ogg">
+      <source src="horse.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+
+<div class="py-10">
+    <p>Indicazioni per raggiungere il monumento:</p>
+</div>
+
+<div style="width: 100%" *ngIf="details.id == 2"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%20Piazza%20San%20Pietro%2C%2000120%20Citt%C3%A0%20del%20Vaticano+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 1"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=%20Piazza%20del%20Colosseo%2C%201%2C%2000184%20Roma+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 3"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=Via%20dei%20Fori%20Imperiali%2C%20Roma%20RM+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 4"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Fontana%20di%20Trevi%2C%20Piazza%20di%20Trevi%2C%20Roma%2C%20RM+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 5"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Pantheon%2C%20Piazza%20della%20Rotonda%2C%20Roma%2C%20RM+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 6"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Altare%20della%20Patria%2C%20Piazza%20Venezia%2C%20Roma%2C%20RM+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates</a></iframe></div>
+
+
+<div style="width: 100%" *ngIf="details.id == 7"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Torre%20Eiffel%2C%20Campo%20di%20Marte%2C%20Avenue%20Anatole%20France%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 8"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Museo%20del%20Louvre%2C%20Rue%20de%20Rivoli%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 10"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Arco%20di%20Trionfo%2C%20Place%20Charles-de-Gaulle%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 9"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Cattedrale%20di%20Notre-Dame%2C%20Parvis%20Notre-Dame%20-%20place%20Jean-Paul-II%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 11"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Avenue%20des%20Champs-%C3%89lys%C3%A9es%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 12"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Moulin%20Rouge%2C%20Boulevard%20de%20Clichy%2C%20Parigi%2C%20Francia+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my coordinates</a></iframe></div>
+
+<div style="width: 100%" *ngIf="details.id == 13"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Big%20Ben%2C%20Londra%2C%20Regno%20UnitoBig%20Ben%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 14"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=London%20Eye%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 15"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Torre%20di%20Londra%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 16"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Tower%20Bridge%2C%20Tower%20Bridge%20Road%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 17"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Buckingham%20Palace%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0"
+        scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 18"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=British%20Museum%2C%20Great%20Russell%20Street%2C%20Londra%2C%20Regno%20Unito+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates</a></iframe></div>
+
+<div style="width: 100%" *ngIf="details.id == 19"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Palazzo%20Reale%20di%20Madrid%2C%20Calle%20de%20Bail%C3%A9n%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my coordinates</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 20"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Plaza%20Mayor%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no"
+        marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 21"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Museo%20del%20Prado%2C%20Calle%20de%20Ruiz%20de%20Alarc%C3%B3n%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 22"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Parco%20del%20Retiro%2C%20Plaza%20de%20la%20Independencia%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">latitude longitude finder</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 23"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Puerta%20del%20Sol%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no"
+        marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">gps coordinates</a></iframe></div>
+<div style="width: 100%" *ngIf="details.id == 24"><iframe width="100%" height="400" src="https://maps.google.com/maps?width=100%&amp;height=400&amp;hl=en&amp;q=Mercado%20de%20San%20Miguel%2C%20Plaza%20de%20San%20Miguel%2C%20Madrid%2C%20Spagna+(My%20Business%20Name)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed"
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.maps.ie/coordinates.html">find my location</a></iframe></div>

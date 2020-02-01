@@ -1,0 +1,60 @@
+<mat-toolbar>
+    <!-- <button mat-button class="app-menu-button" (click)="sidenav.toggle()">
+    <i class="material-icons">menu</i>
+  </button> -->
+    <div fxLayout="row" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start" class="w-100-p">
+        <div fxFlex="10">
+            <img src="assets/img/logo.png" alt="beach" style="width: 30%;">
+        </div>
+
+        <div fxFlex="80" fxLayoutAlign="center">
+            <h1 class="text-white py-10">Travel Guides</h1>
+        </div>
+    </div>
+
+
+</mat-toolbar>
+
+<div class="city-selected">
+    <div fxLayout="row" fxLayoutAlign="start" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="start" class="w-100-p px-20 pt-10">
+        <div fxFlex="20" fxLayoutAlign="start">
+            <mat-icon class="color-white pointer" routerLink="../">home</mat-icon>
+        </div>
+
+        <div fxFlex="80" fxLayoutAlign="end">
+            <img src="assets/img/flag/{{citySelectedFlag}}" alt="beach" style="width: 4%;">
+            <p class="pl-10 color-white">{{citySelectedByApi}}</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="pt-20">
+    <div fxLayout="column" fxLayoutAlign="center" fxLayout.gt-sm="row wrap" fxLayoutAlign.gt-sm="start" fxLayoutGap="20px" class="m-20">
+        <ng-container *ngFor="let item of items">
+            <mat-card class="example-card m-10" fxFlex="100" fxFlex.gt-xs="30" fxFlex.gt-sm="30" (click)="goToDetails(item.id)">
+                <mat-card-content>
+                    <div fxLayout="column" fxLayoutAlign="center" fxLayout.gt-sm="row" fxLayoutAlign.gt-sm="center">
+                        <div fxFlex="50">
+                            <img mat-card-image src="{{item.img}}" class="img-class">
+                        </div>
+
+                        <div fxFlex="50">
+                            <div fxLayout="column" fxLayoutAlign="center" fxLayout.gt-sm="column" fxLayoutAlign.gt-sm="center" class="p-10">
+                                <h2>{{item.monumentName}}</h2>
+                                <p>{{item.descrizione}}</p>
+
+                                <div fxLayout="row" fxLayoutAlign="start" class="pt-20">
+                                    <ng-container *ngFor="let i of [].constructor(item.rating)">
+                                        <mat-icon class="color-star">star</mat-icon>
+                                    </ng-container>
+                                    ({{item.votanti}})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>
